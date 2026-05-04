@@ -1,0 +1,5 @@
+# Abaikan semua file database mlflow
+mlflow.db*
+
+# Abaikan folder eksperimen
+mlruns/

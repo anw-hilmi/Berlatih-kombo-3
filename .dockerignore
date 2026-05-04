@@ -1,0 +1,9 @@
+# Abaikan semua file database mlflow
+mlflow.db*
+
+# Abaikan folder eksperimen
+mlruns/
+
+# Abaikan Git agar build cepat
+.gitignore
+
