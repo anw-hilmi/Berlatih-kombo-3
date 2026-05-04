@@ -1,12 +1,15 @@
 import joblib
-import glob
 import os
+from flask import Flask, request, jsonify
 
-# Sesuaikan path-nya, jika model.pkl ada di folder yang sama dengan app.py, gunakan './*.pkl'
-list_of_files = glob.glob('./*.pkl') 
+app = Flask(__name__)
+model = joblib.load('model.pkl')
 
-if not list_of_files:
-    raise FileNotFoundError("Tidak ada file .pkl yang ditemukan. Pastikan modelling.py sudah dijalankan.")
+@app.route('/predict', methods=['POST'])
+def predict():
+    # ... kode prediksi Anda ...
+    return jsonify({"status": "success"})
 
-latest_file = max(list_of_files, key=os.path.getctime)
-model = joblib.load(latest_file)
+# LETAKKAN DI SINI (Paling Bawah)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
